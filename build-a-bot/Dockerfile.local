@@ -1,0 +1,21 @@
+FROM vuejs/ci as build-stage
+
+WORKDIR /app
+
+RUN npm install -g httpserver
+
+COPY package*.json ./
+
+RUN npm install
+
+COPY ./vue.config.js /app/vue.config.js
+COPY ./bable.config.js /app/babel.config.js
+COPY ./src/ /app/src/
+COPY ./public/ /app/public/
+
+RUN npm run build
+
+FROM nginx:stable-alpine as prod
+COPY --from=build-stage /app/dist /usr/share/nginx/html
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
