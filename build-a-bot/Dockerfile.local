@@ -9,9 +9,10 @@ COPY package*.json ./
 RUN npm install
 
 COPY ./vue.config.js /app/vue.config.js
-COPY ./bable.config.js /app/babel.config.js
+COPY ./babel.config.js /app/babel.config.js
 COPY ./src/ /app/src/
 COPY ./public/ /app/public/
+COPY ./.eslintrc.json /app/.eslintrc.json
 
 RUN npm run build
 
