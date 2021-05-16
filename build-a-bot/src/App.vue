@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    Root Foo: {{rootFoo}} <br/>
+     Root Foo: {{rootFoo}} <br/>
     Robots Foo: {{robotsFoo}} <br/>
     Users Foo: {{usersFoo}} <br/>
     <br/>
