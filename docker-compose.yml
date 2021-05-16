@@ -8,6 +8,9 @@ services:
     image: vue-learning.client:local
     ports:
       - 8080:8080
+    volumes:
+      - ./build-a-bot:/app
+      - /app/node_modules
     depends_on:
       - api
     restart: unless-stopped

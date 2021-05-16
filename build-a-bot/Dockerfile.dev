@@ -1,5 +1,6 @@
 FROM vuejs/ci as build-stage
 
+RUN mkdir /app
 WORKDIR /app
 
 ENV CHOKIDAR_USEPOLLING=true
@@ -9,8 +10,6 @@ RUN npm install -g httpserver
 COPY package*.json ./
 
 RUN npm install
-
-COPY . .
 
 EXPOSE 8080
 
