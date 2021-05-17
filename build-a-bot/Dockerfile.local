@@ -2,8 +2,6 @@ FROM vuejs/ci as build-stage
 
 WORKDIR /app
 
-RUN npm install -g httpserver
-
 COPY package*.json ./
 
 RUN npm install
@@ -17,7 +15,7 @@ COPY ./.eslintrc.json /app/.eslintrc.json
 RUN npm run build
 
 FROM nginx:stable-alpine as prod
-COPY --from=build-stage /app/dist /usr/share/nginx/html
-COPY ./vueconfig.conf /etc/nginx/conf.d/vueconfig.conf
+COPY --from=build-stage /app/dist /app
+COPY ./vueconfig.conf /etc/nginx/nginx.conf
 EXPOSE 8080
 CMD ["nginx", "-g", "daemon off;"]

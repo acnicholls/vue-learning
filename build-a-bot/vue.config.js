@@ -1,11 +1,13 @@
 module.exports = {
+  lintOnSave: true,
   configureWebpack: {
-    devServer: {
-      proxy: {
-        '/api': {
-          target: 'http://localhost:8082',
-          changeOrigin: true,
-        },
+      module: {
+        rules: [
+          {
+            test: /\.coffee$/,
+            use: ['coffee-loader'],
+          },
+        ],
       },
       clientLogLevel: 'info',
       watchOptions:
@@ -13,5 +15,12 @@ module.exports = {
         poll: true,
       },
     },
+    devServer: {
+      proxy: {
+        '/api': {
+          target: 'http://localhost:8082',
+          changeOrigin: true,
+        },
+      },
   },
 };
