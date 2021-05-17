@@ -28,7 +28,8 @@
     "eslint-plugin-import": "^2.23.2",
     "eslint-plugin-vue": "7.9.0",
     "postcss": "8.2.15",
-    "vue-template-compiler": "^2.6.12"
+    "vue-template-compiler": "^2.6.12",
+    "webpack": "^5.37.0"
   },
   "resolutions": {
     "postcss": "8.2.15"

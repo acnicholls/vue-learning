@@ -1,19 +1,9 @@
 module.exports = {
   lintOnSave: true,
   configureWebpack: {
-      module: {
-        rules: [
-          {
-            test: /\.coffee$/,
-            use: ['coffee-loader'],
-          },
-        ],
-      },
-      clientLogLevel: 'info',
-      watchOptions:
-      {
-        poll: true,
-      },
+    watchOptions:
+    {
+      poll: true,
     },
     devServer: {
       proxy: {
@@ -22,5 +12,6 @@ module.exports = {
           changeOrigin: true,
         },
       },
+    },
   },
 };
